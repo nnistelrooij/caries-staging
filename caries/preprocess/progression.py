@@ -172,11 +172,11 @@ def progression(
     coco_dicts = []
     for  root in annotator_roots:
         coco_dict = progression_scores(coco, root)
-        coco_dicts.append(coco_dict['annotations'])
+        coco_dicts.append(coco_dict)
 
     out_dict = copy.deepcopy(coco_dicts[0])
     out_dict['annotations'] = []
-    for anns in zip(*coco_dicts):
+    for anns in zip(*[cd['annotations'] for cd in coco_dicts]):
         if 'score' not in anns[0]:
             out_dict['annotations'].append(anns[0])
             continue

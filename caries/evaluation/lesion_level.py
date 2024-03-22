@@ -57,7 +57,13 @@ def eval_image(
     return gts, preds
 
 
-def eval_split(coco, results, score_thr, iou_thr, caries_tag):
+def eval_split(
+    coco,
+    results,
+    score_thr,
+    iou_thr,
+    caries_tag,
+):
     img_name2id = {img['file_name']: img_id for img_id, img in coco.imgs.items()}
 
     gts, preds = torch.zeros((2, 0))
@@ -76,9 +82,14 @@ def eval_split(coco, results, score_thr, iou_thr, caries_tag):
     return gts, preds
 
 
-def eval_lesion_level(coco, score_thrs, iou_thr, caries_tag):
+def eval_lesion_level(
+    coco,
+    split_score_thrs,
+    iou_thr,
+    caries_tag,
+):
     gts, preds = torch.zeros((2, 0))
-    for split, score_thr in enumerate(tqdm(score_thrs)):
+    for split, score_thr in tqdm(list(split_score_thrs.items())):
         with open(f'work_dirs/stage2_{split}/detections.pkl', 'rb') as f:
             results = pickle.load(f)
 
@@ -116,7 +127,10 @@ if __name__ == '__main__':
 
     eval_lesion_level(
         coco=coco,
-        score_thrs=[0.9041, 0.9092, 0.8944, 0.7912, 0.9116, 0.8991, 0.9361, 0.9189, 0.7006, 0.9292],
+        split_score_thrs={
+            0: 0.9041, 1: 0.9092, 2: 0.8944, 3: 0.7912, 4: 0.9116,
+            5: 0.8991, 6: 0.9361, 7: 0.9189, 8: 0.7006, 9: 0.9292
+        },
         iou_thr=0.5,
         caries_tag='Secondary',
     )

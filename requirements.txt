@@ -1,3 +1,4 @@
 fvcore
+scikit-image==0.22.0
 scikit-multilearn @ git+https://github.com/scikit-multilearn/scikit-multilearn
 tensorboard==2.16.2

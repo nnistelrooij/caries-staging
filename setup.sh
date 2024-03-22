@@ -12,8 +12,8 @@ conda create -n caries_staging -y python=3.11
 conda activate caries_staging
 
 # PyTorch
-pip3 install torch torchvision torchaudio
-pip3 install torch-scatter -f https://data.pyg.org/whl/torch-2.2.1+cu121.html
+pip3 install torch==2.1.0 torchvision==0.16.0 torchaudio==2.1.0 --index-url https://download.pytorch.org/whl/cu121
+pip3 install torch-scatter -f https://data.pyg.org/whl/torch-2.1.0+cu121.html
 
 # MMEngine, MMCV
 pip3 install -U openmim

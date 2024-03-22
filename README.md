@@ -12,7 +12,11 @@ Please refer to `setup.sh` for the installation of a virtual environment and the
 
 ### Pre-processing
 
-With the bitewing radiographs and annotations from multiple annotators as supplied on OSF, the data can be pre-processed and split for 10-fold cross-validation by running `caries/preprocess.py`.
+With the bitewing radiographs and annotations from multiple annotators as supplied on OSF, the data can be pre-processed and split for 10-fold cross-validation by running
+
+``` shell
+PYTHONPATH=code python code/caries/preprocess.py
+```
 
 ### Two-stage training
 

@@ -107,6 +107,7 @@ test_dataloader = dict(
     ),
 )
 test_evaluator = dict(
+    _delete_=True,
     type='DumpGTPredDetResults',
 )
 
