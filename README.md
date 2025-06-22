@@ -55,4 +55,18 @@ PYTHONPATH=code python code/mmdetection/tools/test.py code/caries/configs/stage2
 
 The annotations can be compared to the predictions visually, by specifying `--show` and `--wait-time` after the inference terminal command above.
 
+## Citation
+
+```
+@article{10.1159/000542289,
+    author = {van Nistelrooij, Niels and Chaves, Eduardo Trota and Cenci, Maximiliano Sergio and Cao, Lingyun and Loomans, Bas A.C. and Xi, Tong and El Ghoul, Khalid and Romero, Vitor Henrique Digmayer and Lima, Giana Silveira and Flügge, Tabea and van Ginneken, Bram and Huysmans, Marie-Charlotte and Vinayahalingam, Shankeeth and Mendes, Fausto Medeiros},
+    title = {Deep Learning-Based Algorithm for Staging Secondary Caries in Bitewings},
+    journal = {Caries Research},
+    pages = {1-11},
+    year = {2024},
+    month = {10},
+    doi = {10.1159/000542289}
+}
+```
+
 Additionally, confusion matrices and ROC curves can be made by running `caries/evaluation/tooth_level.py`. Furthermore, the predictions of lesion severity scores can be evaluated by running `caries/evaluations/lesion_level.py`.
